@@ -110,20 +110,19 @@ if "loaded" not in st.session_state:
 if "authenticated" not in st.session_state:
     st.session_state.authenticated = False
 
+
 # STEP 1: Trending Loader Screen
 if not st.session_state.loaded:
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.markdown("<h2 class='glow-text'>✨ Initializing Magical Universe...</h2>", unsafe_allow_html=True)
-
+    
     progress_text = st.empty()
     progress_bar = st.progress(0)
 
     for percent_complete in range(100):
         time.sleep(0.01)
         progress_bar.progress(percent_complete + 1)
-        progress_text.markdown(
-            f"<p style='text-align:center; font-weight:600;'>Loading Pure Love... {percent_complete + 1}%</p>",
-            unsafe_allow_html=True)
+        progress_text.markdown(f"<p style='text-align:center; font-weight:600;'>Loading Pure Love... {percent_complete + 1}%</p>", unsafe_allow_html=True)
 
     st.session_state.loaded = True
     time.sleep(0.2)
@@ -134,12 +133,10 @@ if not st.session_state.loaded:
 elif not st.session_state.authenticated:
     st.markdown('<div class="glass-card">', unsafe_allow_html=True)
     st.markdown("<h2 class='glow-text'>🔒 Special Access</h2>", unsafe_allow_html=True)
-    st.markdown(
-        "<p style='color: #e0e0e0;'>Yeh khoobsurat safar sirf meri Sneh ke liye hai. Apna secret passcode enter karo:</p>",
-        unsafe_allow_html=True)
-
+    st.markdown("<p style='color: #e0e0e0;'>Yeh khoobsurat safar sirf meri Sneh ke liye hai. Apna secret passcode enter karo:</p>", unsafe_allow_html=True)
+    
     password = st.text_input("Passcode Required", type="password", key="pass_input")
-
+    
     col1, col2, col3 = st.columns([1, 2, 1])
     with col2:
         if st.button("Unlock My Heart ✨", use_container_width=True):
@@ -154,9 +151,7 @@ elif not st.session_state.authenticated:
 # STEP 3: Main Birthday Celebration (After Password Unlock)
 else:
     st.markdown("<h1 class='glow-text'>🎉 Happy Birthday, My Kareja Sneh! 🎂</h1>", unsafe_allow_html=True)
-    st.markdown(
-        "<h3 style='text-align: center; color: #ffb199;'>✨ 8th November - The most special day of my life ✨</h3>",
-        unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: #ffb199;'>✨ 8th November - The most special day of my life ✨</h3>", unsafe_allow_html=True)
     st.write("")
 
     # Heartfelt Love & Birthday Message Section
@@ -175,18 +170,17 @@ else:
     """, unsafe_allow_html=True)
 
     st.write("")
-    st.markdown("<h3 style='text-align: center; color: #ff758c;'>✨ Kuch Yaadein Jo Humari Duniya Hain ✨</h3>",
-                unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: #ff758c;'>✨ Kuch Yaadein Jo Humari Duniya Hain ✨</h3>", unsafe_allow_html=True)
     st.write("")
 
-    # List of images inside the 'Kareja/' folder
+    # List of images directly in main folder
     image_paths = [
-        "Kareja/jpg 01.jpg",
-        "Kareja/jpg 02.jpg",
-        "Kareja/jpg 03.jpg",
-        "Kareja/jpg 04.jpg",
-        "Kareja/jpg 05.jpg",
-        "Kareja/jpg 06.jpg"
+        "jpg 01.jpg",
+        "jpg 02.jpg",
+        "jpg 03.jpg",
+        "jpg 04.jpg",
+        "jpg 05.jpg",
+        "jpg 06.jpg"
     ]
 
     # Display images in 2-column layout with Shatter-to-Spiral Animation
@@ -197,12 +191,10 @@ else:
         with target_column:
             st.markdown('<div class="spiral-card">', unsafe_allow_html=True)
             try:
-                st.image(img_path, use_column_width=True)
+                st.image(img_path, use_container_width=True)
             except Exception:
                 st.warning(f"Image load hone mein dikkat hai: {img_path}")
             st.markdown('</div>', unsafe_allow_html=True)
 
     st.write("")
-    st.markdown(
-        "<h3 style='text-align: center; color: #ff758c; margin-top: 40px;' class='glow-text'> You mean the absolute world to me! Forever yours 💖</h3>",
-        unsafe_allow_html=True)
+    st.markdown("<h3 style='text-align: center; color: #ff758c; margin-top: 40px;' class='glow-text'> You mean the absolute world to me! Forever yours 💖</h3>", unsafe_allow_html=True)
